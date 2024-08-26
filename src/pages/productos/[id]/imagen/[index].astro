@@ -1,17 +1,25 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { productos } from '../../lib/data';
+import Layout from '../../../../layouts/Layout.astro';
+import { productos } from '../../../../lib/data';
 
 export function getStaticPaths() {
-  return productos.map((producto) => ({
-    params: {
-      id: producto.id,
-    },
-  }));
+  const paths = [];
+  productos.forEach((producto) => {
+    producto.imagenes.forEach((_, index) => {
+      paths.push({
+        params: {
+          id: producto.id,
+          index: index.toString(),
+        },
+      });
+    });
+  });
+  return paths;
 }
 
-const { id } = Astro.params;
+const { id, index } = Astro.params;
 const producto = productos.find((producto) => producto.id === id);
+const imagenSeleccionada = producto?.imagenes[parseInt(index)];
 ---
 
 <Layout title={`Producto ${producto?.titulo}`}>
@@ -23,18 +31,20 @@ const producto = productos.find((producto) => producto.id === id);
     </div>
     <figure class="w-80">
       <img
-        class="object-cover rounded-2xl shadow-lg shadow-slate-700"
+        class="object-cover rounded-2xl shadow-lg shadow-slate-700 border-4 border-white"
         loading="lazy"
-        src={producto?.imagenes[0]}
-        alt={`Imagen de ${producto?.imagenes[0]}`}
+        src={imagenSeleccionada}
+        alt={`Imagen de ${imagenSeleccionada}`}
       />
       <div class="w-40 m-auto flex justify-center gap-10 mt-10">
         {producto?.imagenes.map((imagen, index) => (
-          <a href={`/productos/${id}/imagen/${index}`} key={index}>
+          <a href={`/productos/${id}/imagen/${index}`} key?={index}>
             <img
               src={imagen}
               alt={`Imagen de ${producto.titulo} ${index + 1}`}
-              class="w-20 h-20 object-cover rounded"
+              class={`w-20 h-20 object-cover rounded ${
+                index === index ? 'border-4 border-white' : ''
+              }`}
             />
           </a>
         ))}
