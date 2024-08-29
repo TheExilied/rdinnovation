@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
 import {productos} from '../lib/data.ts';
+import Slider from '../components/Slider.astro';
 
 ---
 
@@ -37,10 +38,7 @@ import {productos} from '../lib/data.ts';
 			</defs>
 		</svg>
 		<h1>Experimento <span class="text-gradient">Innovation</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		<Slider />	
 		<ul role="list" class="link-card-grid">
 			{
 				productos.map(producto => <Card

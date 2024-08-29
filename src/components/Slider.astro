@@ -1,0 +1,115 @@
+---
+
+---
+
+<section class="w-11/12 bg-white px-6 py-14 rounded-[30px]">
+    <div class="swiper cursor-grab">
+      <!-- Wrapper adicional requerido -->
+      <div class="swiper-wrapper uppercase font-bold mb-12">
+        <!-- Los slides -->
+        <div class="swiper-slide">
+          <div class="flex flex-col justify-center items-center">
+            <img
+              class="object-contain mb-6"
+              src="../../public/city-miami.svg"
+              alt="Silueta de la ciudad de Miami"
+            />
+            <p>Miami</p>
+          </div>
+        </div>
+        <div
+          class="swiper-slide"
+          style="display: flex; justify-content: center; align-items: end;"
+        >
+        <div class="flex flex-col justify-center items-center">
+          <img
+            class="object-contain mb-6"
+            src="../../public/city-houston.svg"
+            alt="Silueta de la ciudad de Houston"
+          />
+          <p>Houston</p>
+        </div>
+        </div>
+        <div
+          class="swiper-slide"
+          style="display: flex; justify-content: center; align-items: end;"
+        >
+        <div class="flex flex-col justify-center items-center">
+          <img
+            class="object-contain mb-6"
+            src="../../public/city-caracas.svg"
+            alt="Silueta de la ciudad de Caracas"
+          />
+          <p>Caracas</p>
+        </div>
+        </div>
+        <div
+          class="swiper-slide"
+          style="display: flex; justify-content: center; align-items: end;"
+        >
+        <div class="flex flex-col justify-center items-center">
+          <img
+            class="object-contain mb-6"
+            src="../../public/city-guatemala.svg"
+            alt="Silueta de la ciudad de Guatemala"
+          />
+          <p>Guatemala</p>
+        </div>
+        </div>
+        <div
+          class="swiper-slide"
+          style="display: flex; justify-content: center; align-items: end;"
+        >
+        <div class="flex flex-col justify-center items-center">
+          <img
+            class="object-contain mb-6"
+            src="../../public/city-mexico.svg"
+            alt="Silueta de la ciudad de Mexico"
+          />
+          <p>Mexico</p>
+        </div>
+        </div>
+      </div>
+  
+    <!-- Botonera -->
+      <div class="flex justify-evenly items-center">
+        <div class="antes cursor-pointer">
+          <img src="../../public/antes.svg" alt="Preview arrow">
+        </div>
+        <h2 class="text-6xl  font-bold uppercase">
+          Our offices
+        </h2>
+        <div class="despues cursor-pointer">
+          <img src="../../public/despues.svg" alt="Next arrow">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .swiper-wrapper {
+      align-items: end;
+    }
+  </style>
+  
+  <script>
+    // Core de Swiper y estilos
+    import Swiper from "swiper";
+    import "swiper/css";
+    // Módulo Navigation de Swiper y estilos
+    import { Navigation } from "swiper/modules";
+    import "swiper/css/navigation";
+  
+    // Configurar Swiper
+    const swiper = new Swiper(".swiper", {
+      modules: [Navigation], // definir los módulos a usar
+      loop: true, // definir si los slides estarán en bucle
+      slidesPerView: 4, // agregar número de slides para la pantalla
+      spaceBetween: 10, // separación entre slides en px
+      navigation: {
+        // definir botones next y prev para el módulo Navigation
+        prevEl: ".antes",
+        nextEl: ".despues",
+      },
+    });
+  </script>

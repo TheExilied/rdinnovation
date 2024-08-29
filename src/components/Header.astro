@@ -1,0 +1,46 @@
+---
+---
+
+<header class="flex justify-center my-6">
+    <nav class="w-1/2 justify-between text-white inline-flex items-center px-6 py-3 borde text-lg">
+      <a href="#">
+        Lorem Ipsum
+      </a>
+      <a href="#">
+        Lorem Ipsum
+      </a>
+      <img src="#" alt="Logo de Pepsi">
+      <a href="#" >
+        Lorem Ipsum
+      </a>
+      <a href="#">
+        Lorem Ipsum
+      </a>
+    </nav>
+
+  </header>
+
+  
+
+<style>
+@import url('//raw.githubusercontent.com/necolas/normalize.css/master/normalize.css');
+
+.borde {
+  position: relative;
+}
+
+.borde::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 5px;
+  background: linear-gradient(180deg, #FFD700, #FF69B4);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+</style>
