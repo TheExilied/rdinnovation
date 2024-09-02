@@ -35,4 +35,7 @@ export default {
 	  plugins: [
 		require('tailwindcss-border-gradient-radius'),
 	  ],
+	    "tags": [
+    "swiper"
+  ]
 }

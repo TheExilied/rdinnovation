@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { marcas } from '../../lib/data';
+
+export function getStaticPaths() {
+  // Generar las rutas basadas en las marcas
+  return marcas.map((marca) => ({
+    params: {
+      marca: marca.marca,
+    },
+  }));
+}
+
+const { marca } = Astro.params;
+// Encuentra la marca que coincide con el parámetro
+const miMarca = marcas.find((miMarca) => miMarca.marca === marca);
+---
+
+<Layout title={`Producto ${miMarca?.marca}`}>
+  <div class="w-full h-screen flex flex-col justify-center items-center gap-10">
+    <h2 class="text-center text-3xl font-bold mb-6 text-zinc-200">{miMarca.marca}</h2>
+    <div class="w-1/2 bg-slate-600 mx-auto flex justify-around">
+      {miMarca?.productos.map((miProducto, index) => (
+        <div key?={index} class="bg-slate-950 text-zinc-200 text-lg p-4">
+          <h3>{miProducto.producto}</h3>
+          <img0
+            src={`${miProducto.sabores[0].imagenes}`}
+            alt={`Foto del producto ${miProducto.producto}`}
+            class="w-full h-auto mb-4"
+          />
+          <p class="text-zinc-300 text-base">
+            {miProducto.descripcion}
+          </p>
+          <a
+            href={`/marcas/${marca}/${miProducto.producto}`}
+            class="py-3 w-full bg-pink-600 text-zinc-300 text-lg block text-center mt-4"
+          >
+            Ver {miProducto.producto}
+          </a>
+        </div>
+      ))}
+    </div>  
+  </div>
+</Layout>

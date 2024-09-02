@@ -1,0 +1,95 @@
+---
+---
+
+<div class="swiper mySwiper altura top-30">
+    <div class="swiper-wrapper selector">
+      <div class="swiper-slide"><img
+        class="object-contain mb-6"
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53f59ee3-60ce-4d32-8885-c6f05457259c/dgahlii-2561436c-69ac-46b0-8660-6659d0cf5569.png/v1/fit/w_375,h_668/beer_glass_isolated_on_transparent_background__67__by_anavrin_ai_dgahlii-375w.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzZjU5ZWUzLTYwY2UtNGQzMi04ODg1LWM2ZjA1NDU3MjU5Y1wvZGdhaGxpaS0yNTYxNDM2Yy02OWFjLTQ2YjAtODY2MC02NjU5ZDBjZjU1NjkucG5nIiwiaGVpZ2h0IjoiPD03MTIiLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ilwvd21cLzUzZjU5ZWUzLTYwY2UtNGQzMi04ODg1LWM2ZjA1NDU3MjU5Y1wvYW5hdnJpbi1haS00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.iwj2F4J67Y4gyQk3cGXHwjg5iHukSAM8mvnY1SM6nQA"
+        alt="se me acabaron las ideas"
+      /></div>
+      <div class="swiper-slide selector"> <img
+        class="object-contain mb-6"
+        src="https://www.rockstarenergy.co.uk/prod/s3fs-public/2022-04/punched-sour-apple-es.png"
+        alt="un tragito de GTA"
+      /></div>
+      <div class="swiper-slide selector"><img
+        class="object-contain mb-6"
+        src="https://suplementosalmayor.cl/wp-content/uploads/2023/04/QHUSH-RR1-IMG-OPT_2000x.webp"
+        alt="calaca en una lata"
+      /></div>
+      <div class="swiper-slide selector">
+        <a href="./productos/1"> 
+        <img
+        class="object-contain mb-6"
+        src="../../public/bottle_polar_studio_drops_300px.png"
+        alt="Erikson pasame una!"
+      />
+    </a> 
+      </div>
+      <div class="swiper-slide selector"><img
+        class="object-contain mb-6"
+        src="https://212global.com/wp-content/uploads/2024/07/61a696f64f1abdd16726b63c_thumbnail-600x600.png"
+        alt="Lata de Pepsi"
+      /></div>
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<style>
+    .swiper {
+      width: 100%;
+
+    }
+
+    .altura{
+      scale: 0.50;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .selector {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+
+<script>
+    // Core de Swiper y estilos
+    import Swiper from "swiper";
+    import "swiper/css";
+
+    // Módulo Navigation de Swiper y estilos
+    import { Navigation, Pagination } from "swiper/modules";
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+
+    var swiper = new Swiper(".mySwiper", {
+      modules: [Navigation, Pagination],
+      slidesPerView: 3,
+      spaceBetween: 30,
+      navigation: {
+        // definir botones next y prev para el módulo Navigation
+        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>

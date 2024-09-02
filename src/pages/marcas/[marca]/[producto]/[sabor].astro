@@ -1,0 +1,38 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { marcas } from '../../../../lib/data';
+
+export function getStaticPaths() {
+  const paths = [];
+
+  marcas.forEach((marca) => {
+    marca.productos.forEach((producto) => {
+      producto.sabores.forEach((sabor) => {
+        console.log('Marca:', marca.marca);
+        console.log('Producto:', producto.producto);
+        console.log('Sabor:', sabor.sabor);
+
+        paths.push({
+          params: {
+            marca: marca.marca,
+            producto: producto.producto,
+            sabor: sabor.sabor,
+          },
+        });
+      });
+    });
+  });
+
+  return paths;
+}
+
+const { marca, producto, sabor } = Astro.params;
+
+
+
+
+---
+
+<Layout title={`Información Adicional `}>
+ <h1 class="text-6xl text-center font-semibold text-emerald-400 mt-12">Lo nuedo de {marca} es {producto} sabor a {sabor}</h1>
+</Layout>
