@@ -1,0 +1,60 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { marcas } from '../../../lib/data';
+
+export function getStaticPaths() {
+  const paths = [];
+
+  marcas.forEach((marca) => {
+    marca.productos.forEach((producto) => {
+      producto.sabores.forEach((sabor) => {
+        paths.push({
+          params: {
+            marca: marca.marca,
+            producto: producto.producto,
+            sabor: sabor.sabor,
+          },
+        });
+      });
+    });
+  });
+
+  return paths; // Devolvemos un array de rutas
+}
+
+const { marca, producto, sabor, index } = Astro.params;
+
+const miMarca = marcas.find((m) => m.marca === marca);
+const miProducto = miMarca.productos.find((p) => p.producto === producto);
+const miSabor = miProducto.sabores.find((s) => s.sabor === sabor);
+const imagenSeleccionada = miSabor?.imagenes[parseInt(index)];
+---
+
+<Layout title={`Producto ${miProducto?.producto}`}>
+  <section class="w-full h-screen flex justify-center items-center gap-10">
+    <div class="flex justify-center items-start flex-col">
+      <h1 class="text-2xl text-white font-bold">Producto: {miProducto?.producto}</h1>
+      <h2 class="text-white text-lg">Sabor: {miSabor?.sabor}</h2>
+      <p class="text-white text-base">{miProducto?.descripcion}</p>
+      {miProducto?.sabores.map((miSabor, index) => (
+        <div key?={index} class="bg-slate-950 text-zinc-200 text-lg p-4">
+          <h3>{miSabor.sabor}</h3>
+          {/* <img
+            src=`../../../../public/${miProducto.sabores[0].imagenes}.png`
+            alt={`Foto del producto ${miProducto.producto}`}
+            class="w-full h-auto mb-4"
+          /> */}
+          <p class="text-zinc-300 text-base">
+            {miSabor.informacionAdicional[0]}
+          </p>
+          <a
+            href={`/marcas/${marca}/${miProducto.producto}/${miSabor.sabor}`}
+            class="py-3 w-full bg-pink-600 text-zinc-300 text-lg block text-center mt-4"
+          >
+            Ver {miProducto.producto} sabor {miSabor.sabor}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

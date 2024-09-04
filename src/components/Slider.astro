@@ -1,7 +1,7 @@
 ---
 
 ---
-
+   
 
     <div class="swiper cursor-grab ">
       <!-- Wrapper adicional requerido -->
@@ -72,6 +72,24 @@
     </div>
 
   <style>
+
+    .img-cont{
+      width: 350px;
+      height: 250px;
+      background-image: url("https://gagadget.com/media/post_big/halo-infinite-box-art-revealed_yup6.jpg");
+      background-size: cover;
+      position: relative;
+    }
+
+    .img-cont::after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: inherit;
+      filter: blur(15px);
+      z-index: -1;
+    }
     .swiper-wrapper {
       align-items: end;
     }
