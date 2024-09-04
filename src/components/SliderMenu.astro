@@ -85,43 +85,6 @@ const mango = "https://suplementosalmayor.cl/wp-content/uploads/2023/04/QHUSH-RR
   }
 }
 
-
-/* .swiper-slide {
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  .swiper-slide-active {
-    transform: scale(1.5);
-    filter: brightness(1.2) saturate(1.5);
-  }
-
-  .swiper-slide:not(.swiper-slide-active) {
-    transform: scale(0.8);
-  }
-
-  .img-cont2 {
-    background-size: cover;
-    position: relative;
-  }
-
-  .img-cont2::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: inherit;
-    z-index: -1;
-    transition: 0.2s;
-  }
-
-  .img-cont2:hover::after,
-  .img-cont2:active::after {
-    filter: blur(15px) saturate(400%);
-  }
-  .swiper {
-    width: 100%;
-  } */
-
   .swiper {
   width: 100%;
 }
@@ -210,38 +173,3 @@ const mango = "https://suplementosalmayor.cl/wp-content/uploads/2023/04/QHUSH-RR
     },
   });
 </script>
-
-<!-- <script>
-  // Core de Swiper y estilos
-  import Swiper from "swiper";
-  import "swiper/css";
-
-  // Módulo Navigation de Swiper y estilos
-  import { Navigation, Pagination } from "swiper/modules";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
-
-  var swiper = new Swiper(".mySwiper", {
-    modules: [Navigation, Pagination],
-    slidesPerView: 3,
-    spaceBetween: 30,
-    centeredSlides: true,
-    loop: true,
-    navigation: {
-      prevEl: ".swiper-button-prev",
-      nextEl: ".swiper-button-next",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    on: {
-      slideChangeTransitionStart: function () {
-        this.slides.forEach((slide) => {
-          slide.classList.remove("swiper-slide-active");
-        });
-        this.slides[this.activeIndex].classList.add("swiper-slide-active");
-      },
-    },
-  });
-</script> -->
